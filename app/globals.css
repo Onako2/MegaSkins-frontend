@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+  font-family: "Bitcount Single";
+  color: aliceblue;
+}
+
+.logo span {
+  background-color: navy;
+  font-size: 200%;
+}
+
+.skin_cont {
+    display: inline-block;
+    background-color: gray;
+    border-radius: 1rem;
+    border-color: black;
+    border-spacing: 10px;
+}
