@@ -36,9 +36,20 @@ body {
 }
 
 .skin_cont {
-    display: inline-block;
-    background-color: gray;
-    border-radius: 1rem;
-    border-color: black;
-    border-spacing: 10px;
+  display: inline-block;
+  background-color: gray;
+  border-radius: 1rem;
+  border-color: black;
+  border-spacing: 10px;
+  box-shadow: var(--shadow-xs);
+}
+
+.skin_cont:hover {
+  border-radius: 2rem;
+  background-color: beige;
+  box-shadow: var(--shadow-2xl);
+  margin-bottom: -20px;
+  margin-top: -20px;
+  margin-right: -10px;
+  margin-left: -10px;
 }

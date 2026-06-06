@@ -62,6 +62,7 @@ async function loadSite() {
     container.className = "skin_cont"
     container.hidden = true
     container.onclick = function() {onClick(hash)}
+    container.classList.add("transition-all")
 
     const skinImage = document.createElement("img")
     
