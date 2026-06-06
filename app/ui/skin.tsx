@@ -1,16 +1,14 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { redirect } from 'next/navigation'
 import { SkinViewer } from '@labymod/skinview3d';
 
 type SkinsProps = {
-  count: number;
+  hash: string;
 };
 
-export default function Skins({ count }: SkinsProps) {
+export default function Skin({ hash }: SkinsProps) {
   const api = "http://localhost:8080/api/"
-  const [wasLoaded, setLoaded] = useState(false)
 
   async function render(element: HTMLImageElement, skin: string) {
     const skinViewer = new SkinViewer({
@@ -29,45 +27,23 @@ export default function Skins({ count }: SkinsProps) {
     skinViewer.render();
     const image = skinViewer.canvas.toDataURL();
 
+
     element.src = image;
     element.width = skinViewer.width;
     element.height = skinViewer.height;
   }
 
-  async function loadSite() {
-    if (!wasLoaded) {
-      setLoaded(true);
-      console.log("First load!")
-      for (let i = 0; i <= count; i++) {
-
-        await fetch(api + "skin/random", {
-          method: 'GET'
-        }).then(fulfilled => {
-          console.log("hey!")
-          fulfilled.json().then(json => {
-            loadElement(json.hash);
-          }
-          )
-        })
-      }
-      const conts = document.getElementsByClassName("skin_cont");
-      for (let i = 0; i < conts.length; i++) {
-        const cont = conts[i] as HTMLElement;
-        cont.hidden = false;
-      }
-    }
-  }
-
   function loadElement(hash: string) {
     const container = document.createElement("div")
-    container.className = "skin_cont"
-    container.hidden = true
+    container.className = "skin_cont_ind"
     container.onclick = function () { onClick(hash) }
     container.classList.add("transition-all")
 
     const skinImage = document.createElement("img")
 
-    render(skinImage, api + "skin/image?hash=" + hash)
+    render(skinImage, api + "skin/image?hash=" + hash).catch(ex => {
+      render(skinImage, "https://textures.minecraft.net/texture/a3e1df44e853929ea0d094333fdf2726a44ef7c8b725efa34232c8b98fe33789")
+    })
     container.appendChild(skinImage)
 
     const skins = document.getElementById("skins")
@@ -77,12 +53,12 @@ export default function Skins({ count }: SkinsProps) {
   }
 
   function onClick(hash: string) {
-    redirect('skin/' + hash)
+    alert(hash);
   }
 
   useEffect(() => {
     async function load() {
-      loadSite()
+      loadElement(hash)
     }
     load();
   });

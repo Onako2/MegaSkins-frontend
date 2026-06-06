@@ -53,3 +53,19 @@ body {
   margin-right: -10px;
   margin-left: -10px;
 }
+
+.skin_cont_ind {
+  display: inline-block;
+  background-color: gray;
+  border-radius: 1rem;
+  border-color: black;
+  border-spacing: 10px;
+  box-shadow: var(--shadow-xs);
+}
+
+.skin_cont_ind:hover {
+  border-radius: 2rem;
+  background-color: beige;
+  box-shadow: var(--shadow-2xl);
+  scale: 125%;
+}
