@@ -17,7 +17,7 @@ export default function Home() {
           </p>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row skins" id="skins">
-          <Skins></Skins>
+          <Skins count={4}></Skins>
         </div>
       </main>
     </div>
