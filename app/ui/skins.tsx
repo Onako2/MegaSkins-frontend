@@ -92,7 +92,7 @@ export default function Skins({ count }: SkinsProps) {
   return (
     <>
       {skins.map(hash => (
-        <div key={hash} onClick={() => router.push('/skin/' + encodeURIComponent(hash))}>
+        <div key={hash} className='select-none' onClick={() => router.push('/skin/' + encodeURIComponent(hash))}>
           <Skin hash={hash} />
         </div>
       ))}

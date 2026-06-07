@@ -42,6 +42,7 @@ body {
   border-color: black;
   border-spacing: 10px;
   box-shadow: var(--shadow-xs);
+  transition: all .2s cubic-bezier(.47,0,.74,.71);
 }
 
 #skins div:hover .skin_cont {

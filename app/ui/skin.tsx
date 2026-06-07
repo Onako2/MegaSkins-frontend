@@ -70,7 +70,7 @@ export default function Skin({ hash }: SkinsProps) {
   }, [hash])
 
   return (
-    <div className="skin_cont_ind transition-all" hidden={!loaded} onClick={() => router.push('/skin/' + encodeURIComponent(hash))}>
+    <div className="skin_cont_ind transition-all select-none" hidden={!loaded} onClick={() => router.push('/skin/' + encodeURIComponent(hash))}>
       <img ref={imgRef} alt={hash} />
       <canvas id="skin_container"></canvas>
     </div>
