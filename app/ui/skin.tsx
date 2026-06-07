@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { SkinViewer } from '@labymod/skinview3d'
+import { createOrbitControls } from '@labymod/skinview3d/libs/orbit_controls.js'
 
 type SkinsProps = {
   hash: string
@@ -14,13 +15,27 @@ export default function Skin({ hash }: SkinsProps) {
   const [loaded, setLoaded] = useState(false)
   const router = useRouter()
   useEffect(() => {
-    const viewer = new SkinViewer({ width: 200, height: 300, renderPaused: true })
+    
+    const skinCanvas = document.getElementById('skin_container') as HTMLCanvasElement
+    let viewer
+    let usesCanvas = false
+    if (skinCanvas) {
+      viewer = new SkinViewer({canvas: skinCanvas, width: 200, height: 300})
+      usesCanvas = true
+    } else {
+      viewer = new SkinViewer({ width: 200, height: 300 })
+    }
     viewer.camera.rotation.x = -0.62
     viewer.camera.rotation.y = 0.534
     viewer.camera.rotation.z = 0.348
     viewer.camera.position.x = 30.5
     viewer.camera.position.y = 22.0
     viewer.camera.position.z = 42.0
+
+    const control = createOrbitControls(viewer);
+	  control.enableRotate = true;
+	  control.enableZoom = false;
+	  control.enablePan = false;
 
     let cancelled = false
 
@@ -30,9 +45,13 @@ export default function Skin({ hash }: SkinsProps) {
         viewer.render()
         try {
           if (!imgRef.current) return
-          imgRef.current.src = viewer.canvas.toDataURL()
-          imgRef.current!.width = viewer.width
-          imgRef.current!.height = viewer.height
+          if (!usesCanvas) {
+            imgRef.current.src = viewer.canvas.toDataURL()
+            imgRef.current!.width = viewer.width
+            imgRef.current!.height = viewer.height
+          } else {
+            imgRef.current.style.display = 'none'
+          }
           setLoaded(true)
         } catch (e) {
           if (imgRef.current) imgRef.current.alt = 'Error rendering skin'
@@ -53,6 +72,7 @@ export default function Skin({ hash }: SkinsProps) {
   return (
     <div className="skin_cont_ind transition-all" hidden={!loaded} onClick={() => router.push('/skin/' + hash)}>
       <img ref={imgRef} alt={hash} />
+      <canvas id="skin_container"></canvas>
     </div>
   )
 }
