@@ -9,13 +9,13 @@ type SkinsProps = {
 }
 
 function Skin({hash}: {hash: string}) {
-  const api = 'http://localhost:8080/api/'
+  const api = "https://nuc.de.majic.rs/api/megaskins/"
   const imgRef = useRef<HTMLImageElement | null>(null)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     if (!imgRef.current) return
-    const viewer = new SkinViewer({ width: 200, height: 300, renderPaused: true })
+    const viewer = new SkinViewer({ width: 300, height: 400, renderPaused: true })
     viewer.camera.rotation.x = -0.62
     viewer.camera.rotation.y = 0.534
     viewer.camera.rotation.z = 0.348
