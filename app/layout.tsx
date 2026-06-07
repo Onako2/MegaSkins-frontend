@@ -40,9 +40,9 @@ export default function RootLayout({
               &copy; {new Date().getFullYear()} MegaSkins. MIT Licence
             </p>
             <div className="grid h-32 grid-cols-1 place-content-center gap-2">
-              <p className=""><a>Open Source Notice</a></p>
-              <p className=""><a>Contact</a></p>
-              <p className=""><a>Privacy</a></p>
+              <p><a href="https://raw.githubusercontent.com/Onako2/MegaSkins-frontend/refs/heads/main/LICENCES.md">Open Source Notice</a></p>
+              <p><a href="/privacy/">Contact</a></p>
+              <p><a href="/privacy/">Privacy</a></p>
             </div>
           </div>
         </footer>
