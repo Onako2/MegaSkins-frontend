@@ -24,7 +24,7 @@ function Skin({hash}: {hash: string}) {
     viewer.camera.position.z = 42.0
 
     let cancelled = false
-    viewer.loadSkin(api + 'skin/image?hash=' + hash).then(() => {
+    viewer.loadSkin(api + 'skin/image?hash=' + encodeURIComponent(hash)).then(() => {
       if (cancelled) return
       viewer.render()
       try {
@@ -67,7 +67,7 @@ function Skin({hash}: {hash: string}) {
 }
 
 export default function Skins({ count }: SkinsProps) {
-  const api = 'http://localhost:8080/api/'
+  const api = 'https://nuc.de.majic.rs/api/megaskins/'
   const [skins, setSkins] = useState<string[]>([])
   const loadedRef = useRef(false)
   const router = useRouter()
@@ -92,7 +92,7 @@ export default function Skins({ count }: SkinsProps) {
   return (
     <>
       {skins.map(hash => (
-        <div key={hash} onClick={() => router.push('/skin/' + hash)}>
+        <div key={hash} onClick={() => router.push('/skin/' + encodeURIComponent(hash))}>
           <Skin hash={hash} />
         </div>
       ))}

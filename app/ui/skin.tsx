@@ -10,7 +10,7 @@ type SkinsProps = {
 }
 
 export default function Skin({ hash }: SkinsProps) {
-  const api = 'http://localhost:8080/api/'
+  const api = 'https://nuc.de.majic.rs/api/megaskins/'
   const imgRef = useRef<HTMLImageElement | null>(null)
   const [loaded, setLoaded] = useState(false)
   const router = useRouter()
@@ -58,7 +58,7 @@ export default function Skin({ hash }: SkinsProps) {
         }
       })
 
-    doRender(api + 'skin/image?hash=' + hash).catch(() =>
+    doRender(api + 'skin/image?hash=' + encodeURIComponent(hash)).catch(() =>
       doRender('https://textures.minecraft.net/texture/a3e1df44e853929ea0d094333fdf2726a44ef7c8b725efa34232c8b98fe33789').catch(() => {
         if (!cancelled && imgRef.current) imgRef.current.alt = 'Error loading skin'
       })
@@ -70,7 +70,7 @@ export default function Skin({ hash }: SkinsProps) {
   }, [hash])
 
   return (
-    <div className="skin_cont_ind transition-all" hidden={!loaded} onClick={() => router.push('/skin/' + hash)}>
+    <div className="skin_cont_ind transition-all" hidden={!loaded} onClick={() => router.push('/skin/' + encodeURIComponent(hash))}>
       <img ref={imgRef} alt={hash} />
       <canvas id="skin_container"></canvas>
     </div>

@@ -7,7 +7,7 @@ type DescriptionProps = {
 export default async function Description({ hash }: DescriptionProps) {
   if (!hash) return null
 
-  const api = `http://localhost:8080/api/skin/description?hash=${encodeURIComponent(hash)}`
+  const api = `https://nuc.de.majic.rs/api/megaskins/skin/description?hash=${encodeURIComponent(hash)}`
   try {
     const res = await fetch(api)
     if (!res.ok) {
