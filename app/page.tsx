@@ -12,11 +12,10 @@ export default function Home() {
             Minecraft skins, tagged, described and agent ready!
           </h1>
           <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Lorem ipsum
+            Click any skin to start
           </p>
           <br></br>
         </div>
-        <p >Random skins selected just for you :D</p>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row skins" id="skins">
           <Skins count={4}></Skins>
         </div>
