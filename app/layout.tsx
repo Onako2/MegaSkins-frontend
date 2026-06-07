@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 const bitcountSingle = Bitcount_Single({
   variable: "--font-bitcount-single",
-  subsets: ["latin"]
+  subsets: ["latin"],
+  adjustFontFallback: false
 })
 
 export const metadata: Metadata = {
@@ -30,9 +31,22 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${bitcountSingle.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">{children}
+        <footer>
+          <div className="w-full max-w-3xl mx-auto py-8 px-4 text-center text-sm text-zinc-500">
+            <p>
+              &copy; {new Date().getFullYear()} MegaSkins. MIT Licence
+            </p>
+            <div className="grid h-32 grid-cols-1 place-content-center gap-2">
+              <p className=""><a>Open Source Notice</a></p>
+              <p className=""><a>Contact</a></p>
+              <p className=""><a>Privacy</a></p>
+            </div>
+          </div>
+        </footer>
+      </body>
     </html>
   );
 }
