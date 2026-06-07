@@ -1,48 +1,41 @@
-'use client'
+'use server'
 
-import { useEffect, useState } from 'react'
+type DescriptionProps = {
+  hash?: string
+}
 
-type SkinsProps = {
-  hash: string;
-};
+export default async function Description({ hash }: DescriptionProps) {
+  if (!hash) return null
 
-export default function Description({ hash }: SkinsProps) {
-  const api = "http://localhost:8080/api/"
-
-  async function describe(hash: string) {
-    await fetch(api + "skin/description?hash=" + hash, {
-      method: 'GET'
-    }).then(fulfilled => {
-      fulfilled.text().then(text => {
-        if (text != null) {
-          loadElement(text);
-        }
-      })
-    }).catch(ex => {
-      loadElement("Error " + ex);
-    })
-  }
-
-  function loadElement(descriptionText: string) {
-    const container = document.createElement("div")
-    container.className = "description"
-
-    const description = document.createElement("p")
-    description.innerHTML = descriptionText;
-
-    container.appendChild(description)
-
-    const skins = document.getElementById("skins")
-    if (skins != null) {
-      skins.appendChild(container)
+  const api = `http://localhost:8080/api/skin/description?hash=${encodeURIComponent(hash)}`
+  try {
+    const res = await fetch(api)
+    if (!res.ok) {
+      const text = await res.text().catch(() => '')
+      return (
+        <div className="description basis-1/2">
+          <p>{`Error: ${res.status} ${res.statusText} ${text}`}</p>
+        </div>
+      )
     }
-  }
-
-  useEffect(() => {
-    async function load() {
-      await describe(hash)
+    const text = await res.text()
+    if (!text) {
+      return (
+        <div className="description basis-1/2">
+          <p>No description available.</p>
+        </div>
+      )
     }
-    load();
-  });
-  return ""
+    return (
+      <div className="description basis-1/2">
+        <p dangerouslySetInnerHTML={{ __html: text }} />
+      </div>
+    )
+  } catch (e) {
+    return (
+      <div className="description basis-1/2">
+        <p>{`Error fetching description: ${String(e)}`}</p>
+      </div>
+    )
+  }
 }
