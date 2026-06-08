@@ -9,7 +9,13 @@ export default async function Stats() {
     api = 'https://nuc.de.majic.rs/api/megaskins/stats'
   }
   try {
-    const res = await fetch(api)
+    const res = await fetch(api).catch(ex => {
+      return (
+      <div className="stats basis-1/2">
+        <p>{`Error fetching stats: ${String(ex)}`}</p>
+      </div>
+    )
+    })
     if (!res.ok) {
       const text = await res.json().catch(() => '')
       return (
