@@ -23,7 +23,7 @@ export default async function Stats() {
     }
     return (
       <div className="stats basis-1/2">
-        <p dangerouslySetInnerHTML={{ __html: `Skins descriptions: ${text.descriptionCount} | Requests to api: ${text.requestsThisSession} (current run)` }} />
+        <p dangerouslySetInnerHTML={{ __html: `Skins descriptions: ${text.descriptionCount}` }} />
       </div>
     )
   } catch (e) {
