@@ -1,5 +1,5 @@
 import Skin from "../../ui/skin";
-import Link from 'next/link';
+import Link from "next/link";
 import Description from "@/app/ui/description";
 
 export default async function Page({ params }: { params: { hash: string } } | { params: Promise<{ hash: string }> }) {

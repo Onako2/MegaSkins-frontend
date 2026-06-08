@@ -1,15 +1,15 @@
 "use client"
 
-import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { SkinViewer } from '@labymod/skinview3d'
+import { useEffect, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
+import { SkinViewer } from "@labymod/skinview3d"
 
 type SkinsProps = {
   count: number
 }
 
 function Skin({hash}: {hash: string}) {
-  const api = "https://nuc.de.majic.rs/api/megaskins/"
+  const api = 'https://nuc.de.majic.rs/api/megaskins/'
   const imgRef = useRef<HTMLImageElement | null>(null)
   const [loaded, setLoaded] = useState(false)
 
@@ -92,7 +92,7 @@ export default function Skins({ count }: SkinsProps) {
   return (
     <>
       {skins.map(hash => (
-        <div key={hash} className='select-none' onClick={() => router.push('/skin/' + encodeURIComponent(hash))}>
+        <div key={hash} className="select-none" onClick={() => router.push("/skin/" + encodeURIComponent(hash))}>
           <Skin hash={hash} />
         </div>
       ))}

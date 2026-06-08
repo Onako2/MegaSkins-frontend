@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { useEffect, useRef, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { SkinViewer } from '@labymod/skinview3d'
-import { createOrbitControls } from '@labymod/skinview3d/libs/orbit_controls.js'
+import { useEffect, useRef, useState } from "react"
+import { useRouter } from "next/navigation"
+import { SkinViewer } from "@labymod/skinview3d"
+import { createOrbitControls } from "@labymod/skinview3d/libs/orbit_controls.js"
 
 type SkinsProps = {
   hash: string

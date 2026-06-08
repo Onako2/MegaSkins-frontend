@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Script from "next/script";
 import Skins from "./ui/skins";
 
 export default function Home() {
