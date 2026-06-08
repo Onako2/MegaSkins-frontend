@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bitcount_Single } from "next/font/google";
 import "./globals.css";
+import Stats from "./ui/stats";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
               &copy; {new Date().getFullYear()} MegaSkins. MIT Licence
             </p>
             <div className="grid h-32 grid-cols-1 place-content-center gap-2">
+              <Stats></Stats>
               <p><a href="https://raw.githubusercontent.com/Onako2/MegaSkins-frontend/refs/heads/main/LICENCES.md">Open Source Notice</a></p>
               <p><a href="/privacy/">Contact</a></p>
               <p><a href="/privacy/">Privacy</a></p>
