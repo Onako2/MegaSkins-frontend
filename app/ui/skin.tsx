@@ -20,10 +20,10 @@ export default function Skin({ hash }: SkinsProps) {
     let viewer
     let usesCanvas = false
     if (skinCanvas) {
-      viewer = new SkinViewer({canvas: skinCanvas, width: 200, height: 300})
+      viewer = new SkinViewer({canvas: skinCanvas, width: 300, height: 500})
       usesCanvas = true
     } else {
-      viewer = new SkinViewer({ width: 200, height: 300 })
+      viewer = new SkinViewer({ width: 300, height: 500 })
     }
     viewer.camera.rotation.x = -0.62
     viewer.camera.rotation.y = 0.534
