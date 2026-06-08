@@ -58,10 +58,11 @@ export default function Skin({ hash }: SkinsProps) {
         }
       })
 
-    doRender(api + 'skin/image?hash=' + encodeURIComponent(hash)).catch(() =>
+    doRender(api + 'skin/image?hash=' + encodeURIComponent(hash)).catch((error) => {
+      console.error(error);
       doRender('https://textures.minecraft.net/texture/a3e1df44e853929ea0d094333fdf2726a44ef7c8b725efa34232c8b98fe33789').catch(() => {
         if (!cancelled && imgRef.current) imgRef.current.alt = 'Error loading skin'
-      })
+      })}
     )
 
     return () => {

@@ -83,7 +83,7 @@ export default function Skins({ count }: SkinsProps) {
     Promise.all(promises).then(hashes => setSkins(hashes)).catch(err => {
       const container = document.getElementById('skins')
       if (container) {
-        const msg = document.createTextNode("Error: can't fetch skins, api might be down?")
+        const msg = document.createTextNode("Error: can't fetch skins, you might be rate limited? Try again later")
         container.appendChild(msg)
       }
     })

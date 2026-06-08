@@ -16,6 +16,14 @@ export default async function Description({ hash }: DescriptionProps) {
   try {
     const res = await fetch(api)
     if (!res.ok) {
+      
+      if (res.status == 429) {
+        return (
+        <div className="description basis-1/2">
+          <p dangerouslySetInnerHTML={{ __html: "You've been rate limited!" }} />
+        </div>
+        )
+      }
       const text = await res.text().catch(() => '')
       return (
         <div className="description basis-1/2">
