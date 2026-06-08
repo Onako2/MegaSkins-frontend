@@ -36,7 +36,7 @@ export async function generateMetadata(
           height: 180,
         }
       ],
-      type: "website" 
+      type: "website"
     }
   };
 }
