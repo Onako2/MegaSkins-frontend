@@ -67,3 +67,11 @@ body {
   box-shadow: var(--shadow-2xl);
   scale: 125%;
 }
+
+canvas {
+  max-width: 100%;
+}
+
+.hashtext {
+  font-size: clamp(0.5rem, 1vw, 0.8rem);
+}
