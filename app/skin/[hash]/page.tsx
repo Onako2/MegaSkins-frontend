@@ -1,6 +1,45 @@
 import Skin from "../../ui/skin";
 import Link from "next/link";
 import Description from "@/app/ui/description";
+import { Metadata } from "next";
+
+export async function generateMetadata(
+  { params }: { params: { hash: string } }
+): Promise<Metadata> {
+  const { hash } = await params as { hash: string };
+  let api
+  if (process.env.NODE_ENV == "production") {
+    api = `http://host.docker.internal:8080/api/skin/description?hash=${encodeURIComponent(hash)}`
+  } else {
+    api = `https://nuc.de.majic.rs/api/megaskins/skin/description?hash=${encodeURIComponent(hash)}`
+  }
+  let description
+  const res = await fetch(api)
+  try {
+    if (!res.ok) {
+      description = "404?, idk. Open the website to find out more"
+    } else {
+      const text = await res.text()
+      description = text
+    }
+  } catch (ex) {
+    description = "error:" + ex;
+  }
+  return {
+    openGraph: {
+      title: "MegaSkins",
+      description: description,
+      images: [
+        {
+          url: "/megaskins/apple-touch-icon.png",
+          width: 180,
+          height: 180,
+        }
+      ],
+      type: "website" 
+    }
+  };
+}
 
 export default async function Page({ params }: { params: { hash: string } } | { params: Promise<{ hash: string }> }) {
   const { hash } = await params as { hash: string };
