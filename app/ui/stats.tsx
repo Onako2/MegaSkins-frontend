@@ -2,12 +2,7 @@
 
 export default async function Stats() {
 
-  let api
-  if (process.env.NODE_ENV == "production") {
-    api = 'http://host.docker.internal:8080/api/stats'
-  } else {
-    api = 'https://nuc.de.majic.rs/api/megaskins/stats'
-  }
+  const api = 'https://nuc.de.majic.rs/api/megaskins/stats'
   try {
     const res = await fetch(api)
     if (!res.ok) {
