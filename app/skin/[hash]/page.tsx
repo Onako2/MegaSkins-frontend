@@ -20,7 +20,7 @@ export async function generateMetadata(
       description = "404?, idk. Open the website to find out more"
     } else {
       const text = await res.text()
-      description = text
+      description = text.substring(0, 75) + "..."
     }
   } catch (ex) {
     description = "error:" + ex;
