@@ -12,9 +12,10 @@ export default function Page() {
         <Link href="/search">
           <span>Search</span>
         </Link>
-        <div className="mt-16">
+        <div className="mt-16 mb-8">
           <Search query=""></Search>
         </div>
+        <p>Try searching for something ⬆️</p>
       </main>
     </div>
   );
