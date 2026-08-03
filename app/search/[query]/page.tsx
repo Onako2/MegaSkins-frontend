@@ -31,7 +31,7 @@ export default async function Page({ params }: { params: { query: string } } | {
         <div className="mt-16 mb-10">
           <Search query={decodeURIComponent(query)}></Search>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row skins" id="skins">
+        <div className="grid grid-cols-4 grid-rows-3 flex flex-col gap-4 text-base font-medium sm:flex-row skins" id="skins">
           <Skin query={query} />
         </div>
       </main>
