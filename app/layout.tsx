@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Bitcount_Single } from "next/font/google";
 import "./globals.css";
 import Stats from "./ui/stats";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,7 +35,18 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${bitcountSingle.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}
+      <body className="min-h-full flex flex-col">
+        <div className="grid justify-items-center bg-gray-700 w-full bg-radial-[at_50%_100%] from-black to-zinc-900 to-80%">
+          <div className="flex flex-row m-6">
+            <Link href="/">
+              <p className="m-4">Home</p>
+            </Link>
+            <Link href="/search">
+              <p className="m-4">Search</p>
+            </Link>
+          </div>
+        </div>
+        {children}
         <footer>
           <div className="w-full max-w-3xl mx-auto py-8 px-4 text-center text-sm text-zinc-500">
             <p>

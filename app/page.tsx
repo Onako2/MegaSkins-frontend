@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MegaSkins",
     description: "MegaSkins allows you to search for Minecraft skins and downloading them via a simple API",
-    images: [
-      {
-        url: "/megaskins/apple-touch-icon.png",
-        width: 180,
-        height: 180,
-      }
-    ],
+    // images: [
+    //   {
+    //     url: "/megaskins/apple-touch-icon.png",
+    //     width: 180,
+    //     height: 180,
+    //   }
+    // ],
     type: "website"
   },
 };

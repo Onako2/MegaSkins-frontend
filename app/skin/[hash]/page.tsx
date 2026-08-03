@@ -29,13 +29,13 @@ export async function generateMetadata(
     openGraph: {
       title: "MegaSkins",
       description: description,
-      images: [
-        {
-          url: "/megaskins/apple-touch-icon.png",
-          width: 180,
-          height: 180,
-        }
-      ],
+      // images: [
+      //   {
+      //     url: "/megaskins/apple-touch-icon.png",
+      //     width: 180,
+      //     height: 180,
+      //   }
+      // ],
       type: "website"
     }
   };
