@@ -1,5 +1,6 @@
 "use client"
 
+import Link from 'next/link'
 import { useEffect, useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import { SkinViewer } from "@labymod/skinview3d"
@@ -92,8 +93,10 @@ export default function Skins({ count }: SkinsProps) {
   return (
     <>
       {skins.map(hash => (
-        <div key={hash} className="select-none" onClick={() => router.push("/skin/" + encodeURIComponent(hash))}>
-          <Skin hash={hash} />
+        <div key={hash} className="select-none">
+          <Link href={"/skin/" + encodeURIComponent(hash)}>
+            <Skin hash={hash} />
+          </Link>
         </div>
       ))}
     </>
