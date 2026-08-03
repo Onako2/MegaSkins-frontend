@@ -36,7 +36,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${bitcountSingle.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <div className="grid justify-items-center bg-gray-700 w-full dark:bg-radial-[at_50%_100%] dark:from-black dark:to-zinc-900 dark:to-80% bg-radial-[at_50%_100%] from-white to-amber-50 light:to-80%">
+        <div className="grid justify-items-center bg-gray-700 w-full dark:from-black dark:to-zinc-900 bg-radial-[at_50%_100%] from-white to-amber-50 to-100%">
           <div className="flex flex-row m-6">
             <Link href="/">
               <p className="m-4">Home</p>
