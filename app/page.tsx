@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     description: "MegaSkins allows you to search for Minecraft skins and downloading them via a simple API",
     images: [
       {
-        url: "/megaskins/favicon.ico",
+        url: "https://nuc.de.majic.rs/megaskins/favicon.ico",
         width: 32,
         height: 32,
       }

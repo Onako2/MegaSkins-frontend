@@ -31,7 +31,7 @@ export async function generateMetadata(
       description: description,
       images: [
         {
-          url: "/megaskins/favicon.ico",
+          url: "https://nuc.de.majic.rs/megaskins/favicon.ico",
           width: 32,
           height: 32,
         }
