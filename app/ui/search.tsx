@@ -21,7 +21,7 @@ export default function Search({ query }: SearchProps) {
   return (
     <div>
       <form onSubmit={onSubmit}>
-        <p>Type in your search term:</p>
+        <p>Search:</p>
         <input name="query" className="bg-gray-900" defaultValue={query}/>
         <button type="submit" className="bg-blue-500 m-1">Search</button>
       </form>
