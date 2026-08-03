@@ -8,6 +8,8 @@ export default function Page() {
       <main className="flex flex-1 w-full flex-col items-center py-32 px-16 bg-white dark:bg-black sm:items-start">
         <Link href="/">
           <h1 className="logo"><span>Mega<br></br>Skins</span></h1>
+        </Link>
+        <Link href="/search">
           <span>Search</span>
         </Link>
         <div className="mt-16">
