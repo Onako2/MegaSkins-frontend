@@ -66,9 +66,9 @@ export default async function Page({ params }: { params: { hash: string } } | { 
           <SafetyCheck hash={hash} />
         </div>
         <div className="grid">
-          <ApiTester id={"texture"} title={"Texture API"} description={"With this API you can get the texture of a skin from MegaSkins' DB. You can also use the official Mojang api which is more reliable, example: https://textures.minecraft.net/texture/" + hash} rateLimitCount={300} rateLimitUnit="minute" returns="png" url={"https://nuc.de.majic.rs/api/megaskins/skin/image"} queries={map} media={true}/>
-          <ApiTester id={"description"} title={"Description API"} description={"With this API you can get the description of a skin"} rateLimitCount={6} rateLimitUnit="minute" returns="string, raw description" url={"https://nuc.de.majic.rs/api/megaskins/skin/description"} queries={map}/>
-          <ApiTester id={"safety"} title={"Safety API"} description={"This endpoint allows you to get the safety score between 0 and 1 (0 = absolutely safe, 1 = absolutely unsafe). A good value to start with flagging is 0.95"} rateLimitCount={3} rateLimitUnit="second" returns="float, between 0 and 1" url={"https://nuc.de.majic.rs/api/megaskins/skin/safety"} queries={map}/>
+          <ApiTester id="texture" title="Texture API" description={"With this API you can get the texture of a skin from MegaSkins' DB. You can also use the official Mojang api which is more reliable, example: https://textures.minecraft.net/texture/" + hash} rateLimitCount={300} rateLimitUnit="minute" returns="png" url="https://nuc.de.majic.rs/api/megaskins/skin/image" queries={map} media={true} />
+          <ApiTester id="description" title="Description API" description="With this API you can get the description of a skin" rateLimitCount={6} rateLimitUnit="minute" returns="string, raw description" url="https://nuc.de.majic.rs/api/megaskins/skin/description" queries={map} />
+          <ApiTester id="safety" title="Safety API" description="This endpoint allows you to get the safety score between 0 and 1 (0 = absolutely safe, 1 = absolutely unsafe). A good value to start with flagging is 0.95" rateLimitCount={3} rateLimitUnit="second" returns="float, between 0 and 1" url="https://nuc.de.majic.rs/api/megaskins/skin/safety" queries={map} />
         </div>
       </main>
     </div>

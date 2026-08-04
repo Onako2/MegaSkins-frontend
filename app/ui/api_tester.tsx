@@ -1,9 +1,15 @@
 'use client'
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 type QueryProps = {
   id: string,
   queries: Map<string, string>
+}
+
+type ImageProps = {
+  id: string,
+  url: string,
+  media?: boolean
 }
 
 type ApiProps = {
@@ -21,7 +27,9 @@ type ApiProps = {
 export function Queries({ id, queries }: QueryProps) {
 
   if (queries.size === 0) {
-    document.getElementById(id + "-query")?.remove()
+    useEffect(() => {
+      document.getElementById(id + "-query")?.remove()
+    }, [])
   }
 
   return (
@@ -41,17 +49,29 @@ export function Queries({ id, queries }: QueryProps) {
   )
 }
 
+export function CoolImage({ id, url, media }: ImageProps) {
+  if (media) {
+    return (
+      <>
+        <img className="self-center" id={id + "-image"} src={url} hidden alt="Couldn\'t load the image. Something went wrong."></img>
+      </>
+    )
+  } else {
+    return (
+      <></>
+    )
+  }
+}
+
 export default function ApiTester({ id, title, description, rateLimitCount, rateLimitUnit, returns, url, queries, media }: ApiProps) {
-  const [result, setResult] = useState("No result yet...")
+  const [result, setResult] = useState(media ? "https://nuc.de.majic.rs/api/megaskins/skin/image?hash=101388e1247343ed0ce79ed0811cebd3faa7f354f268ea29ccc3934fe9a23920&" : "No result yet...")
   const [lastUrl, setUrl] = useState("")
 
   function onSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    document.body.style.cursor = 'progress';
 
     const formData = new FormData(event.currentTarget);
 
-    const map = new Map();
     let apiUrl = url
     apiUrl = apiUrl + "?"
     queries.forEach((value, key, map) => {
@@ -92,16 +112,17 @@ export default function ApiTester({ id, title, description, rateLimitCount, rate
         } else {
           setResult("Error: " + r.status)
         }
+      }).catch(e => {
+        setResult("" + e)
       });
     }
-    document.body.style.cursor = 'auto';
   }
 
   return (
-    <div className="flex flex-col mt-2 m-1 ml-5 p-1 rounded-lg border brightness-90 hover:brightness-100 bg-blue-200 dark:bg-gray-800 transition-all duration-500 wrap-anywhere">
+    <div id={id} className="flex flex-col mt-2 m-1 ml-5 p-1 rounded-lg border brightness-90 hover:brightness-100 bg-blue-200 dark:bg-gray-800 transition-all duration-500 wrap-anywhere">
       <h1 className="ml-1 text-xl">{title}</h1>
       <p className="ml-2 mt-1">{description}</p>
-      <p className="ml-2 mt-1 mb-3">Rate limit: {rateLimitCount}/{rateLimitUnit}</p>
+      <p className="ml-2 mt-1 mb-3">Rate limit: {rateLimitCount} / {rateLimitUnit}</p>
       <p className="ml-2 mt-1 mb-3">Retuns: <span className="font-mono">{returns}</span></p>
       <p className="ml-3 mr-1 mb-2 font-mono"><a href={url}>{url}</a></p>
       <form className="flex flex-col" onSubmit={onSubmit}>
@@ -113,7 +134,7 @@ export default function ApiTester({ id, title, description, rateLimitCount, rate
       </form>
       <p id={id + "-url"} className="self-center font-mono blur-sm transition-all duration-750 ml-5 mb-5 mr-5 text-xs" hidden><a target="_blank" href={lastUrl}>{lastUrl}</a></p>
       <p id={id + "-result"} className="self-center font-mono p-5 border rounded-lg border-dashed blur-sm transition-all duration-1000">{result}</p>
-      <img className="self-center" id={id + "-image"} src={result} hidden alt="Couldn't load the image. Something went wrong."></img>
+      <CoolImage id={id} url={result} media={media}></CoolImage>
       <p className="self-end mr-3 mt-3 mb-1 text-xs">MegaSkins API-Tester-3000</p>
     </div>
   )

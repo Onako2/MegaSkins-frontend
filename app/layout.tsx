@@ -44,6 +44,9 @@ export default function RootLayout({
             <Link href="/search">
               <p className="m-4">Search</p>
             </Link>
+            <Link href="/api">
+              <p className="m-4">API</p>
+            </Link>
           </div>
         </div>
         {children}
