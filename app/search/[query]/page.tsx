@@ -1,8 +1,7 @@
-import Skin from "../../ui/search_skins";
+import Skin from "@/app/ui/search_skins";
 import Link from "next/link";
-import Description from "@/app/ui/description";
 import { Metadata } from "next";
-import Search from "../../ui/search"
+import Search from "@/app/ui/search"
 
 export async function generateMetadata(
   { params }: { params: { query: string } }

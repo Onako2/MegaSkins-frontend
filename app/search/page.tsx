@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import Search from "../ui/search"
+import Search from "@/app/ui/search"
 
 export default function Page() {
   return (

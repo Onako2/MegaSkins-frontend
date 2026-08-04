@@ -1,6 +1,7 @@
-import Skin from "../../ui/skin";
+import Skin from "@/app/ui/skin";
 import Link from "next/link";
 import Description from "@/app/ui/description";
+import SafetyCheck from "@/app/ui/check_safety";
 import { Metadata } from "next";
 
 export async function generateMetadata(
@@ -57,6 +58,9 @@ export default async function Page({ params }: { params: { hash: string } } | { 
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row skins" id="skins">
           <Skin hash={hash} />
           <Description hash={hash} />
+        </div>
+        <div className="flex">
+          <SafetyCheck hash={hash} />
         </div>
       </main>
     </div>

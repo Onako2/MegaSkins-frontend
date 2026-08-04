@@ -1,4 +1,4 @@
-import Skins from "./ui/skins";
+import Skins from "@/app/ui/skins";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
