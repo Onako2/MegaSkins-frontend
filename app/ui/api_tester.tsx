@@ -90,7 +90,7 @@ export default function ApiTester({ id, title, description, rateLimitCount, rate
         } else {
           setResult("Error: " + r.status)
         }
-    });
+      });
     }
     document.body.style.cursor = 'auto';
   }
