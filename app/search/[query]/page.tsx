@@ -2,6 +2,7 @@ import Skin from "@/app/ui/search_skins";
 import Link from "next/link";
 import { Metadata } from "next";
 import Search from "@/app/ui/search"
+import ApiTester from "@/app/ui/api_tester";
 
 export async function generateMetadata(
   { params }: { params: { query: string } }
@@ -18,6 +19,8 @@ export async function generateMetadata(
 
 export default async function Page({ params }: { params: { query: string } } | { params: Promise<{ query: string }> }) {
   const { query } = await params as { query: string };
+  const map = new Map()
+  map.set("query", decodeURIComponent(query))
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full flex-col items-center py-8 px-16 bg-white dark:bg-black sm:items-start">
@@ -30,9 +33,10 @@ export default async function Page({ params }: { params: { query: string } } | {
         <div className="mt-16 mb-10">
           <Search query={decodeURIComponent(query)}></Search>
         </div>
-        <div className="grid grid-cols-4 grid-rows-3 flex flex-col gap-4 text-base font-medium sm:flex-row skins" id="skins">
+        <div className="grid grid-cols-4 grid-rows-3 flex flex-col gap-4 text-base font-medium sm:flex-row skins mb-5" id="skins">
           <Skin query={query} />
         </div>
+        <ApiTester id="search" title="Search API" description="This endpoint allows you to search for Minecraft skins by providing an URL-encoded query" rateLimitCount={10} rateLimitUnit="minute" returns="array, consisting of strings of hashes" url="https://nuc.de.majic.rs/api/megaskins/skin/search" queries={map}></ApiTester>
       </main>
     </div>
   );
