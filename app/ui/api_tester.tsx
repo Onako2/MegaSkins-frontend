@@ -75,9 +75,11 @@ export default function ApiTester({ id, title, description, rateLimitCount, rate
     const image = document.getElementById(id + "-image") as HTMLImageElement;
 
     if (media) {
-      if (image != null && resultElement != null) {
+      if (image != null) {
         image.src = apiUrl;
         image.hidden = false;
+      }
+      if (resultElement != null) {
         resultElement.remove()
       }
     } else {
