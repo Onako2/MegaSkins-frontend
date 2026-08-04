@@ -113,7 +113,7 @@ export default function ApiTester({ id, title, description, rateLimitCount, rate
       </form>
       <p id={id + "-url"} className="self-center font-mono blur-sm transition-all duration-750 ml-5 mb-5 mr-5 text-xs" hidden><a target="_blank" href={lastUrl}>{lastUrl}</a></p>
       <p id={id + "-result"} className="self-center font-mono p-5 border rounded-lg border-dashed blur-sm transition-all duration-1000">{result}</p>
-      <img className="self-center" id={id + "-image"} src={result} hidden alt="Couldn't load the image, some error had occured :("></img>
+      <img className="self-center" id={id + "-image"} src={result} hidden alt="Couldn't load the image. Something went wrong."></img>
       <p className="self-end mr-3 mt-3 mb-1 text-xs">MegaSkins API-Tester-3000</p>
     </div>
   )
