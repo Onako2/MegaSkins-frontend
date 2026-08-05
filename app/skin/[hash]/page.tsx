@@ -31,13 +31,13 @@ export async function generateMetadata(
     openGraph: {
       title: "MegaSkins",
       description: description,
-      // images: [
-      //   {
-      //     url: "https://nuc.de.majic.rs/megaskins/favicon.ico",
-      //     width: 32,
-      //     height: 32,
-      //   }
-      // ],
+      images: [
+        {
+          url: `https://nuc.de.majic.rs/api/megaskins/skin/head?hash=${encodeURIComponent(hash)}&scale=64.0`,
+          width: 512,
+          height: 512,
+        }
+      ],
       type: "website"
     }
   };
