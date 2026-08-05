@@ -47,6 +47,9 @@ export default async function Page({ params }: { params: { hash: string } } | { 
   const { hash } = await params as { hash: string };
   const map = new Map();
   map.set("hash", hash)
+  const mapScale = new Map();
+  mapScale.set("hash", hash)
+  mapScale.set("scale", "16.0")
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex flex-1 w-full flex-col items-center py-8 px-16 bg-white dark:bg-black sm:items-start">
@@ -69,6 +72,7 @@ export default async function Page({ params }: { params: { hash: string } } | { 
           <ApiTester id="texture" title="Texture API" description={"With this API you can get the texture of a skin from MegaSkins' DB. You can also use the official Mojang api which is more reliable, example: https://textures.minecraft.net/texture/" + hash} rateLimitCount={300} rateLimitUnit="minute" returns="png" url="https://nuc.de.majic.rs/api/megaskins/skin/image" queries={map} media={true} />
           <ApiTester id="description" title="Description API" description="With this API you can get the description of a skin" rateLimitCount={6} rateLimitUnit="minute" returns="string, raw description" url="https://nuc.de.majic.rs/api/megaskins/skin/description" queries={map} />
           <ApiTester id="safety" title="Safety API" description="This endpoint allows you to get the safety score between 0 and 1 (0 = absolutely safe, 1 = absolutely unsafe). A good value to start with flagging is 0.95" rateLimitCount={3} rateLimitUnit="second" returns="float, between 0 and 1" url="https://nuc.de.majic.rs/api/megaskins/skin/safety" queries={map} />
+          <ApiTester id="head" title="Head API" description="Get a skin's front skull view from a hash. You can get scaled variants by modifying the scale parameter. Scale must be between 1.0 and 64.0 (inclusive)." rateLimitCount={300} rateLimitUnit="minute" returns="png" url="https://nuc.de.majic.rs/api/megaskins/skin/head" queries={mapScale} media={true} />
         </div>
       </main>
     </div>

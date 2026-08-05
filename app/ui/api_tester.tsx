@@ -53,7 +53,7 @@ export function CoolImage({ id, url, media }: ImageProps) {
   if (media) {
     return (
       <>
-        <img className="self-center" id={id + "-image"} src={url} hidden alt="Couldn\'t load the image. Something went wrong."></img>
+        <img className="self-center" id={id + "-image"} src={url} hidden alt="Couldn't load the image. Something went wrong."></img>
       </>
     )
   } else {
