@@ -32,7 +32,7 @@ export default function SafetyCheck({ hash }: SafetyProps) {
           setSimilarity("⚠️ Error: " + e);
         })
       }}>Check MegaSkins Skin Safety</button>
-      <p className="text-xs mt-5">The <span className="font-bold">MegaSkins Skin Safety</span> score tells you on a scale between 0.0 to 1.0 how unsafe a Minecraft skin is for use on Minecraft servers with minors. A score of 0.0 means that a skin is completly safe, and a skin of 1.0 means that a skin is an exact match. A score of 0.5 means that the skin is 50% similar to an unsafe skin.</p>
+      <p className="text-xs mt-5">The <span className="font-bold">MegaSkins Skin Safety</span> score tells you on a scale between 0.0 to 1.0 how unsafe a Minecraft skin is for use on Minecraft servers with minors. A score of 0.0 means that a skin is completly safe, and a skin of 1.0 means that a skin is an exact match. A score of 0.5 means that the skin is 50% similar to an unsafe skin. In case the score is inaccurate, please report it via the email from the contact website.</p>
     </div>
   )
 }

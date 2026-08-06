@@ -65,6 +65,7 @@ export default async function Page({ params }: { params: { hash: string } } | { 
           <Skin hash={hash} />
           <Description hash={hash} />
         </div>
+        <p className="m-2 text-xs font-light tracking-tight text-zinc-300">Descriptions are generated using large language models (LLMs) and may not always be accurate. If you find an error or inappropriate content, please use the email address provided on the website linked at the bottom.</p>
         <div className="flex">
           <SafetyCheck hash={hash} />
         </div>
