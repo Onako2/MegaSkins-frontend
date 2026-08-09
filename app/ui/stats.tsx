@@ -24,6 +24,7 @@ export default async function Stats() {
     return (
       <div className="stats basis-1/2">
         <p dangerouslySetInnerHTML={{ __html: `Skins descriptions: ${text.descriptionCount}` }} />
+        <p dangerouslySetInnerHTML={{ __html: `Flagged skins: ${text.bannedCount}`}} />
       </div>
     )
   } catch (e) {
