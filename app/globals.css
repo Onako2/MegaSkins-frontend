@@ -77,3 +77,7 @@ canvas {
 .hashtext {
   font-size: clamp(0.5rem, 1vw, 0.8rem);
 }
+
+.stats {
+  margin-top: 10;
+}
