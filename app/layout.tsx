@@ -57,11 +57,11 @@ export default function RootLayout({
             </p>
             <div className="grid h-48 grid-cols-1 place-content-center gap-2">
               <Stats></Stats>
-              <p><a className="hover:text-lg transition-all hover:font-mono hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500 bg-clip-text hover:text-transparent" href="https://raw.githubusercontent.com/Onako2/MegaSkins-frontend/refs/heads/main/LICENCES.md">Open Source Notice</a></p>
-              <p><a className="hover:text-lg transition-all hover:font-mono hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500 bg-clip-text hover:text-transparent" href="/privacy/">Contact</a></p>
-              <p><a className="hover:text-lg transition-all hover:font-mono hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500 bg-clip-text hover:text-transparent" href="/privacy/">Privacy</a></p>
-              <p><a className="hover:text-lg transition-all hover:font-mono hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500 bg-clip-text hover:text-transparent" href="https://github.com/Onako2/MegaSkins-frontend">frontend source</a></p>
-              <p><a className="hover:text-lg transition-all hover:font-mono hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500 bg-clip-text hover:text-transparent" href="https://github.com/Onako2/MegaSkins">backend source</a></p>
+              <p><a className="footer_link hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500" href="https://raw.githubusercontent.com/Onako2/MegaSkins-frontend/refs/heads/main/LICENCES.md">Open Source Notice</a></p>
+              <p><a className="footer_link hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500" href="/privacy/">Contact</a></p>
+              <p><a className="footer_link hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500" href="/privacy/">Privacy</a></p>
+              <p><a className="footer_link hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500" href="https://github.com/Onako2/MegaSkins-frontend">frontend source</a></p>
+              <p><a className="footer_link hover:bg-linear-to-r hover:from-pink-500 hover:to-violet-500" href="https://github.com/Onako2/MegaSkins">backend source</a></p>
             </div>
           </div>
         </footer>

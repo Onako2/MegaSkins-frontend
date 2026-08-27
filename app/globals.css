@@ -81,3 +81,17 @@ canvas {
 .stats {
   margin-top: 10;
 }
+
+.footer_link {
+  transition-property: all;
+  transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+  transition-duration: var(--default-transition-duration); /* 150ms */
+  background-clip: text;
+}
+
+.footer_link:hover {
+  color: transparent;
+  font-family: monospace;
+  font-size: var(--text-lg); /* 1.125rem (18px) */ 
+  line-height: var(--text-lg--line-height); /* calc(1.75 / 1.125) */
+}
